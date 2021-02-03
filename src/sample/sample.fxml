@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" prefHeight="455.0" prefWidth="656.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <TabPane prefHeight="454.0" prefWidth="646.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="1">
+        <tabs>
+          <Tab text="Почтовый ящик">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="646.0">
+                     <children>
+                        <ChoiceBox fx:id="current_account" layoutX="383.0" layoutY="132.0" prefHeight="26.0" prefWidth="247.0" />
+                        <Label layoutX="384.0" layoutY="114.0" prefHeight="18.0" prefWidth="244.0" text="Текущий аккаунт" />
+                        <TextArea fx:id="message_text" layoutX="8.0" layoutY="114.0" prefHeight="223.0" prefWidth="362.0" />
+                        <Button fx:id="prev_message" layoutX="14.0" layoutY="84.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="151.0" text="Предыдущее" />
+                        <Button fx:id="next_message" layoutX="218.0" layoutY="84.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="151.0" text="Следующее" />
+                        <ChoiceBox fx:id="current_folder" layoutX="384.0" layoutY="197.0" prefHeight="26.0" prefWidth="245.0" />
+                        <Label layoutX="385.0" layoutY="179.0" prefHeight="18.0" prefWidth="236.0" text="Текущая папка" />
+                        <Button fx:id="write_new_message" layoutX="11.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="622.0" text="Написать новое сообщение" />
+                        <Label fx:id="messages_count" layoutX="14.0" layoutY="54.0" text="Кол-во писем" />
+                        <Button fx:id="decrypt_message" layoutX="11.0" layoutY="337.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="357.0" text="Расшифровать" />
+                        <Button fx:id="update_inbox" layoutX="512.0" layoutY="50.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Обновить" />
+                        <Label fx:id="currentMessage" layoutX="169.0" layoutY="89.0" prefHeight="18.0" prefWidth="44.0" />
+                        <Button fx:id="import_public" layoutX="383.0" layoutY="268.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="250.0" text="Импорт" />
+                        <TextField fx:id="public_key_decrypt" layoutX="383.0" layoutY="242.0" prefHeight="26.0" prefWidth="250.0" promptText="Публичный ключ дешифровки" />
+                        <TextField fx:id="sign_decrypt" layoutX="385.0" layoutY="311.0" prefHeight="26.0" prefWidth="248.0" promptText="ЭЦП " />
+                        <Button fx:id="import_sign" layoutX="386.0" layoutY="337.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="246.0" text="Импорт" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Настройки">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="323.0" layoutY="14.0" prefHeight="360.0" prefWidth="316.0">
+                           <children>
+                              <Button fx:id="add_new_account" layoutX="14.0" layoutY="125.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="296.0" text="Добавить аккаунт" />
+                              <Label layoutX="51.0" layoutY="14.0" text="Настройки аккаунтов">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="login_field" layoutX="14.0" layoutY="50.0" prefHeight="25.0" prefWidth="295.0" promptText="Логин" />
+                              <TextField fx:id="password_field" layoutX="14.0" layoutY="89.0" prefHeight="25.0" prefWidth="295.0" promptText="Пароль" />
+                              <Button fx:id="delete_account" layoutX="10.0" layoutY="217.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="296.0" text="Удалить аккаунт" />
+                              <ChoiceBox fx:id="del_account_picker" layoutX="10.0" layoutY="183.0" prefHeight="25.0" prefWidth="295.0" />
+                              <Line endX="-100.79998779296875" endY="-5.600006103515625" layoutX="101.0" layoutY="180.0" startX="-424.0" startY="-5.600006103515625" />
+                              <Line endX="54.0" endY="185.00003051757812" layoutX="-54.0" layoutY="181.0" startX="54.0" startY="-181.0" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="14.0" layoutY="14.0" prefHeight="175.0" prefWidth="302.0">
+                           <children>
+                              <Label layoutX="40.0" layoutY="14.0" text="Настройки клиента">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox fx:id="set_get_protocol" layoutX="12.0" layoutY="75.0" prefHeight="25.0" prefWidth="276.0" />
+                              <Label layoutX="14.0" layoutY="50.0" prefHeight="17.0" prefWidth="273.0" text="Протокол получения сообщений" />
+                           </children>
+                        </Pane>
+                        <Label layoutX="27.0" layoutY="194.0" text="Настройка шифрования">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="add_public_key" layoutX="177.0" layoutY="230.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Добавить" />
+                        <TextField fx:id="public_key_field" layoutX="14.0" layoutY="230.0" prefHeight="26.0" prefWidth="159.0" promptText="Публичный ключ" />
+                        <TextField fx:id="private_key_field" layoutX="14.0" layoutY="274.0" prefHeight="26.0" prefWidth="159.0" promptText="Приватный ключ" />
+                        <Button fx:id="add_private_key" layoutX="177.0" layoutY="274.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Добавить" />
+                        <Button fx:id="generate_keys" layoutX="14.0" layoutY="314.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="299.0" text="Сгенерировать ключи" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</GridPane>
